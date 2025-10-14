@@ -114,7 +114,7 @@ namespace CSRedis
 
         internal string BuildConnectionString(string endpoint)
         {
-            return $"{endpoint}{(string.IsNullOrEmpty(_user) ? "" : $"user={_user}")},password={_password},defaultDatabase={_database},poolsize={PoolSize}," +
+            return $"{endpoint}{(string.IsNullOrEmpty(_user) ? "" : $",user={_user}")},password={_password},defaultDatabase={_database},poolsize={PoolSize}," +
                 $"connectTimeout={_connectTimeout},syncTimeout={_syncTimeout},idletimeout={(int)IdleTimeout.TotalMilliseconds}," +
                 $"preheat=false,ssl={(_ssl ? "true" : "false")},tryit={_tryit},name={_clientname},prefix={Prefix}," + 
                 $"autodispose={(IsAutoDisposeWithSystem ? "true" : "false")},asyncpipeline={(_asyncPipeline ? "true" : "false")}";
