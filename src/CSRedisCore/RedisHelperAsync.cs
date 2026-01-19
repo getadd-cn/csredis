@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 #if net40
 #else
+namespace CSRedis
+{
 partial class RedisHelper<TMark>
 {
 
@@ -1734,5 +1736,6 @@ partial class RedisHelper<TMark>
     public static Task<(T member, decimal dist, decimal longitude, decimal latitude)[]> GeoRadiusByMemberWithDistAndCoordAsync<T>(string key, object member, decimal radius, GeoUnit unit = GeoUnit.m, long? count = null, GeoOrderBy? sorting = null) =>
         Instance.GeoRadiusByMemberWithDistAndCoordAsync<T>(key, member, radius, unit, count, sorting);
     #endregion
+}
 }
 #endif
