@@ -6,7 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.IO;
-
+namespace CSRedis
+{
 public abstract class RedisHelper : RedisHelper<RedisHelper> { }
 
 public abstract partial class RedisHelper<TMark>
@@ -1947,4 +1948,5 @@ public abstract partial class RedisHelper<TMark>
     /// <param name="autoDelay">自动延长锁超时时间，看门狗线程的超时时间为timeoutSeconds/2 ， 在看门狗线程超时时间时自动延长锁的时间为timeoutSeconds。除非程序意外退出，否则永不超时。</param>
     /// <returns></returns>
     public static CSRedisClientLock Lock(string name, int timeoutSeconds, bool autoDelay = true) => Instance.Lock(name, timeoutSeconds);
+}
 }
